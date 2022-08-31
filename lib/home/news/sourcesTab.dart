@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newsapp/home/news/sourceTab.dart';
 
 import '../../api/model/Sourcersreponse.dart';
+import 'newsList.dart';
 
 class SourcesTabs extends StatefulWidget {
   List<Source> sourcesList;
@@ -35,8 +36,8 @@ class _SourcesTabsState extends State<SourcesTabs> {
                   );
                 }).toList()
             ),
+            NewsList(widget.sourcesList[selectedIndex])
           ],
-        )
-    );
+        ));
   }
 }

@@ -14,21 +14,21 @@ class NewsFragment extends StatelessWidget{
         FutureBuilder<SourcesResponse>
           (future:api_manager.getNewsSource(category.id) ,
             builder:(buildContext,snapshot){
-            if(snapshot.hasError){
-              return Center(child: Text(
-                snapshot.error.toString()),
-              );
-            }else if(snapshot.connectionState==ConnectionState.waiting){
-              return Center(child: CircularProgressIndicator(),);
-            }
-            // has data
+              if(snapshot.hasError){
+                return Center(child: Text(
+                    snapshot.error.toString()),
+                );
+              }else if(snapshot.connectionState==ConnectionState.waiting){
+                return Center(child: CircularProgressIndicator(),);
+              }
+              // has data
               var response = snapshot.data;
-            if(response?.status =='error'){
-              return Center(child: Text(
-                  response?.message ?? ""),
-              );
-            }
-            return Expanded(child: SourcesTabs((response?.sources)!));
+              if(response?.status =='error'){
+                return Center(child: Text(
+                    response?.message ?? ""),
+                );
+              }
+              return Expanded(child: SourcesTabs((response?.sources)!));
             } )
       ],
     );
