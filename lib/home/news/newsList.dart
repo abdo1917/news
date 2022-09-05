@@ -12,7 +12,7 @@ class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<NewsResponse>(
-      future: api_manager.getNews(source.id ??''),
+      future: api_manager.getNews(sourceId: source.id ??''),
       builder: (_,snapshot){
         if(snapshot.hasError){
           return Center(child: Text(snapshot.error.toString()));
