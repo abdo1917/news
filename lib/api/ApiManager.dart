@@ -28,12 +28,16 @@ class api_manager {
   }
 
   static Future<NewsResponse> getNews(
-      {String? sourceId ,String? searchKeyWord
+      {String? sourceId,
+        String? searchKeyWord,
+        int? page
       }) async{
     var uri = Uri.https(BASE_URL, 'v2/everything',
         {'apiKey':API_KEY,
           'sources':sourceId,
         'q':searchKeyWord,
+          'pageSize': '20',
+          'page' : '$page',
         }
     );
     var response = await http.get(uri);
