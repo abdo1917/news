@@ -16,7 +16,7 @@ class NewsList extends StatefulWidget {
 }
 
 class _NewsListState extends State<NewsList> {
-  int pageNumber =1 ;
+  int pageNumber =0 ;
   final ScrollController scroll_controller = ScrollController();
   bool atButtom = false;
   List<News> news = [];
@@ -36,7 +36,8 @@ class _NewsListState extends State<NewsList> {
           }
         }
       };
-    });
+    }
+    );
   }
 
   @override
@@ -58,15 +59,15 @@ class _NewsListState extends State<NewsList> {
           return Center(child: Text(snapshot.error.toString()));
         }
         else if (snapshot.hasData){
-          if(news.isNotEmpty && news[0] == snapshot.data?.articles![0]){
+          if(news.isNotEmpty && news[0] != snapshot.data?.articles![0]){
             news=[];
             scroll_controller.jumpTo(0);
             print('object');
           }
           Expanded(
             child: ListView.builder(itemBuilder:(_,index){
-              return NewsWidget((news[index])!);
-            },itemCount: news.length ??0, controller: scroll_controller, ),
+              return NewsWidget((news[index]));
+            },itemCount: news.length , controller: scroll_controller, ),
           );
         }
         else if (snapshot.connectionState==ConnectionState.waiting){
@@ -79,8 +80,8 @@ class _NewsListState extends State<NewsList> {
         news.addAll(data?.articles ??[]);
         return Expanded(
           child: ListView.builder(itemBuilder:(_,index){
-            return NewsWidget((news[index])!);
-          },itemCount: news.length ??0, controller: scroll_controller, ),
+            return NewsWidget((news[index]));
+          },itemCount: news.length , controller: scroll_controller, ),
         );
       },
     );
