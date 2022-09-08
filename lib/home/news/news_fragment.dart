@@ -3,6 +3,7 @@ import 'package:newsapp/api/ApiManager.dart';
 import '../../api/model/Sourcersreponse.dart';
 import '../categories/categories_fragment.dart';
 import 'sourcesTab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsFragment extends StatelessWidget{
   Category category;
@@ -23,7 +24,7 @@ class NewsFragment extends StatelessWidget{
               }
               // has data
               var response = snapshot.data;
-              if(response?.status =='error'){
+              if(response?.status ==AppLocalizations.of(context)!.error){
                 return Center(child: Text(
                     response?.message ?? ""),
                 );

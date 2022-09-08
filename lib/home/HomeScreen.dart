@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/api/ApiManager.dart';
 import 'package:newsapp/home/news/sourcesTab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../api/model/Sourcersreponse.dart';
 import '../api/model/newsRespone.dart';
@@ -44,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 bottom: Radius.circular(30),
               )
           ),
-          title: Text('news App'),
+          title: Text(AppLocalizations.of(context)!.news),
           actions: [
             IconButton(onPressed: (){
               showSearch(context: context, delegate: NewsSearch());
@@ -77,6 +78,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
 class NewsSearch extends SearchDelegate{
   late  Future<NewsResponse> FutureOfNewsNresponse;
+
+  NewsSearch(){
+    FutureOfNewsNresponse=api_manager.getNews(searchKeyWord: '');
+  }
   @override
   List<Widget>? buildActions(BuildContext context) {
     return[
@@ -100,7 +105,7 @@ class NewsSearch extends SearchDelegate{
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: FutureBuilder<NewsResponse>(
-        future: api_manager.getNews(searchKeyWord: ''),
+        future: api_manager.getNews(searchKeyWord: query),
         builder: (_,snapshot){
           if(snapshot.hasError){
             return Center(child: Text(snapshot.error.toString()));
@@ -109,7 +114,7 @@ class NewsSearch extends SearchDelegate{
             return Center(child: CircularProgressIndicator(),);
           }
           var data = snapshot.data;
-          if("error" == data?.status){
+          if(AppLocalizations.of(context)!.error == data?.status){
             return Center(child: Text(data?.message??""),);
           }
           return Expanded(
@@ -124,7 +129,7 @@ class NewsSearch extends SearchDelegate{
 
   @override
   Widget buildSuggestions(BuildContext context) {
-  return Center(child: Text('Suggestion',style: TextStyle(fontSize: 24),));
+  return Center(child: Text(AppLocalizations.of(context)!.suggestion,style: TextStyle(fontSize: 24),));
   }
   
 }

@@ -1,0 +1,18 @@
+{
+  "news": "News",
+  "sports": "sports",
+  "genral": "Genral",
+  "health": "Health",
+  "business": "Business",
+  "technology": "Technology",
+  "science": "Science",
+  "categories": "Categories",
+  "settings" : "Settings",
+  "search": "Search",
+  "suggestion": "Suggestion",
+  "language": "language",
+  "arabic": "arabic",
+  "english": "english",
+  "error": "error",
+  "allarticle": "View all Alricle"
+}

@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'api/model/newsRespone.dart';
 import 'date_utils.dart';
@@ -56,7 +58,7 @@ class news_details_screen extends StatelessWidget {
             TextButton(child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-              Text('View All Article',style: TextStyle(fontSize: 20,
+              Text(AppLocalizations.of(context)!.allarticle,style: TextStyle(fontSize: 20,
                   fontWeight: FontWeight.w500,
               color: Colors.black),
               ),

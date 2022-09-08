@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DrawerContent extends StatelessWidget {
   static const int SETTINGS = 1;
@@ -13,7 +14,7 @@ class DrawerContent extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 64),
           alignment: Alignment.center,
           color: Theme.of(context).primaryColor,
-          child: Text('News App',
+          child: Text(AppLocalizations.of(context)!.news,
           style: TextStyle(
             fontSize: 32,
             color: Colors.white
@@ -28,7 +29,7 @@ class DrawerContent extends StatelessWidget {
               ImageIcon(AssetImage('assets/images/ic_list.png'),
               size: 48,),
               SizedBox(width: 12,),
-              Text('Categories',
+              Text(AppLocalizations.of(context)!.categories,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold
@@ -45,7 +46,7 @@ class DrawerContent extends StatelessWidget {
               ImageIcon(AssetImage('assets/images/ic_settings.png'),
                 size: 48,),
               SizedBox(width: 12,),
-              Text('Settings',
+              Text(AppLocalizations.of(context)!.settings,
                 style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold

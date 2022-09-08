@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/api/ApiManager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../api/model/Sourcersreponse.dart';
 import '../../api/model/newsRespone.dart';
@@ -15,7 +16,7 @@ class NewsList extends StatefulWidget {
 }
 
 class _NewsListState extends State<NewsList> {
-  int pageNumber =0 ;
+  int pageNumber =1 ;
   final ScrollController scroll_controller = ScrollController();
   bool atButtom = false;
   List<News> news = [];
@@ -72,7 +73,7 @@ class _NewsListState extends State<NewsList> {
           return Center(child: CircularProgressIndicator(),);
         }
         var data = snapshot.data;
-        if("error" == data?.status){
+        if(AppLocalizations.of(context)!.error == data?.status){
           return Center(child: Text(data?.message??""),);
         }
         news.addAll(data?.articles ??[]);

@@ -1,0 +1,18 @@
+{
+  "news": "اخبار",
+  "sports": "رياضة",
+  "genral": "اخبار عامة",
+  "health": "صحة",
+  "business": "ادارة اعمال",
+  "technology": "تكنولوحيا",
+  "science": "علوم",
+  "categories": "فئات",
+  "settings" : "اعدادات",
+  "search": "بحث",
+  "suggestion": "اقتراحات",
+  "language": "اللغة",
+  "arabic": "عربى",
+  "english": "انجليزى",
+  "error": "خطأ",
+  "allarticle": "اظهار المقال كامل"
+}
